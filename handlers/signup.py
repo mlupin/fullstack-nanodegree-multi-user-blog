@@ -2,6 +2,7 @@ from handlers.blog import BlogHandler
 from helpers import valid_username
 from helpers import valid_password
 from helpers import valid_email
+from models.user import User
 
 
 class Signup(BlogHandler):
@@ -38,5 +39,16 @@ class Signup(BlogHandler):
         else:
             self.done()
 
-    def done(self, *a, **kw):
-        raise NotImplementedError
+    def done(self):
+        # make sure the user doesn't already exist
+        u = User.by_name(self.username)
+        if u:
+            msg = 'That user already exists.'
+            self.render('signup-form.html', error_username=msg)
+        else:
+            u = User.register(self.username, self.password, self.email)
+            u.put()
+            print "user registered"
+            self.signin(u)
+            print "user signed in"
+            self.redirect('/blog')
