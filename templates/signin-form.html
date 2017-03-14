@@ -1,67 +1,21 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-  <head>
-    <title>Blog</title>
-    <link rel="stylesheet" href="css/stylesheet.css">
-    
-  </head>
+{% block content %}
+  
+    <div class="login">
+        <h5>Login</h5>
+        <p>{{error}}</p>
+        <div>
+            <form method="post">
+                <input placeholder="Username" type="text" name="username" value="{{username}}">
+                <input placeholder="Password" type="password" name="password" value="">
+                <input type="submit" value="login">
+            </form>
+        </div>
+        <div>
+            <a href="">Forgot your password?</a>
+        </div>
+    </div>
 
-  <body>
-    <h2>Sign in</h2>
-    <form method="post">
-      <table>
-        <tr>
-          <td class="label">
-            Username
-          </td>
-          <td>
-            <input type="text" name="username" value="{{username}}">
-          </td>
-          <td class="error">
-            {{error_username}}
-          </td>
-        </tr>
-
-        <tr>
-          <td class="label">
-            Password
-          </td>
-          <td>
-            <input type="password" name="password" value="">
-          </td>
-          <td class="error">
-            {{error_password}}
-          </td>
-        </tr>
-
-        <tr>
-          <td class="label">
-            Verify Password
-          </td>
-          <td>
-            <input type="password" name="verify" value="">
-          </td>
-          <td class="error">
-            {{error_verify}}
-          </td>
-        </tr>
-
-        <tr>
-          <td class="label">
-            Email (optional)
-          </td>
-          <td>
-            <input type="text" name="email" value="{{email}}">
-          </td>
-          <td class="error">
-            {{error_email}}
-          </td>
-        </tr>
-      </table>
-
-      <input type="submit">
-    </form>
-  </body>
-
-</html>
+  
+{% endblock %}

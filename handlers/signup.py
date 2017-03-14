@@ -48,7 +48,5 @@ class Signup(BlogHandler):
         else:
             u = User.register(self.username, self.password, self.email)
             u.put()
-            print "user registered"
             self.signin(u)
-            print "user signed in"
             self.redirect('/blog')

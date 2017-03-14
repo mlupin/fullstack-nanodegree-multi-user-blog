@@ -13,15 +13,16 @@
 
   <div class="login-area">
     {% if user %}
-      {{user.name}} (<a class="signin-link" href="/signout">sign out</a>)
+      <a class="signin-link" href="/blog/newpost">new post</a>
+      <a class="signin-link" href="/signout">sign out</a>
     {% else %}
       <a class="signin-link" href="/signin">sign in</a>
-      |
       <a class="signin-link" href="/signup">sign up</a>
     {% endif %}
   </div>
 
   <div id="content">
+  {{access_error}}
   {% block content %}
   {% endblock %}
   </div>

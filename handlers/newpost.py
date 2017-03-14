@@ -1,6 +1,6 @@
 from handlers.blog import BlogHandler
 from models.post import Post
-from helpers import blog_key
+from helpers import *
 
 
 class NewPost(BlogHandler):
@@ -8,7 +8,8 @@ class NewPost(BlogHandler):
         if self.user:
             self.render("newpost.html")
         else:
-            self.redirect("/signin")
+            error = "You must be signed in to create a post."
+            self.render("base.html", access_error=error)
 
     def post(self):
         if not self.user:
@@ -18,9 +19,10 @@ class NewPost(BlogHandler):
         content = self.request.get('content')
 
         if subject and content:
-            p = Post(parent=blog_key(), subject=subject, content=content)
+            p = Post(parent=blog_key(), subject=subject,
+                     content=content, user_id=self.user.key().id())
             p.put()
-            self.redirect('/blog/%s' % str(p.key().id()))
+            self.redirect('blog/%s' % str(p.key().id()))
         else:
             error = "subject and content, please!"
             self.render("newpost.html", subject=subject, content=content,

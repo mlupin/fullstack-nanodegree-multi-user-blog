@@ -18,7 +18,7 @@ from models.user import User
 
 
 app = webapp2.WSGIApplication([('/', MainPage),
-                               ('/blog/?', BlogFront),
+                               ('/blog', BlogFront),
                                ('/blog/([0-9]+)', PostPage),
                                ('/blog/newpost', NewPost),
                                ('/signup', Signup),

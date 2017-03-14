@@ -10,9 +10,10 @@ class Signin(BlogHandler):
         username = self.request.get('username')
         password = self.request.get('password')
 
-        if User.signin(username, password):
-            self.signin(User.signin(username, password))
+        user = User.signin(username, password)
+        if user:
+            self.signin(user)
             self.redirect('/blog')
         else:
-            message = 'Invalid login'
-            self.render('signin-form.html', error=message)
+            msg = 'Invalid login'
+            self.render('signin-form.html', error=msg)
