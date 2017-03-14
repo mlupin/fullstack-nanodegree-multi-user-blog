@@ -1,31 +1,54 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <link type="text/css" rel="stylesheet" href="/static/css/stylesheet.css" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="static/css/stylesheet.css">
+  </head>
 
-  <title>Multi User Blog</title>
-</head>
+  <body>
+    <header class="container-fluid">
+      <div class="row">
+        <div class="col-xs-4">
+          <a href="/blog" class="main-title">
+            Multi User Blog
+          </a>
+        </div>
 
-<body>
-  <a href="/blog" class="main-title">
-    Multi User Blog
-  </a>
+        <div class="login-area col-xs-8">
+          {% if user %}
+            <a class="signin-link" href="/newpost">new post</a>
+            <a class="signin-link" href="/signout">sign out</a>
+          {% else %}
+            <a class="signin-link" href="/signin">sign in</a>
+            <a class="signin-link" href="/signup">sign up</a>
+          {% endif %}
+        </div>
+      </div>
+    </header> 
 
-  <div class="login-area">
-    {% if user %}
-      <a class="signin-link" href="/blog/newpost">new post</a>
-      <a class="signin-link" href="/signout">sign out</a>
-    {% else %}
-      <a class="signin-link" href="/signin">sign in</a>
-      <a class="signin-link" href="/signup">sign up</a>
-    {% endif %}
-  </div>
+  <!-- Main -->
 
-  <div id="content">
-  {{access_error}}
-  {% block content %}
-  {% endblock %}
-  </div>
+    <div id="content">
+      {{access_error}}
+      {% block content %}
+      {% endblock %}
+    </div>
+
+  
+  <!-- Footer -->
+    <footer class="container-fluid">
+      <div class="row">
+        <div id="social" class="col-xs-12">
+          <hr>
+          <a href="mailto:lupinmarina@gmail.com" target="_blank">gmail</a>
+          <a href="https://www.linkedin.com/in/lupinmarina/" target="_blank">linkedin</a>
+          <a href="https://github.com/mlupin" target="_blank">github</a>
+        </div>
+      </div>
+    </footer>
 </body>
 
 </html>

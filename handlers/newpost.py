@@ -22,7 +22,7 @@ class NewPost(BlogHandler):
             p = Post(parent=blog_key(), subject=subject,
                      content=content, user_id=self.user.key().id())
             p.put()
-            self.redirect('blog/%s' % str(p.key().id()))
+            self.redirect('/%s' % str(p.key().id()))
         else:
             error = "subject and content, please!"
             self.render("newpost.html", subject=subject, content=content,
