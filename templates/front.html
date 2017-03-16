@@ -2,38 +2,48 @@
 
 {% block content %}
 
+        
     {% for post in posts %}
         {% if user %}
             {{ post.render(user.key().id()) | safe }}
+            <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment">reply</a>
+            
         {% else %}
             {{ post.render(None) | safe }}
         {% endif %}
-        {% if user.key().id() == post.user_id %}
-            <a href="/{{post.key().id()}}/delete">Delete</a>
-            <a href="/{{post.key().id()}}/edit">Edit</a>
-        {% endif %}
-
-        {% if user %}
+        
+        <!-- {% if user %}
             <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment">comment</a>
         {% endif %}
-
-        {% for comment in comments %}
-            <h5>{{ comment.author }}</h5>
-            <h5>{{ comment.created.strftime("%b %d, %Y")}}</h5>
-            <p>{{ comment.content}}</p>
-            
-            <div>
-                {% if user and user.key().id() == comment.user_id %}
+         -->
+        
+            {% for comment in comments %}
+                {% if post.key().id() == comment.post_id %}
+                    <h5>{{ comment.author }}</h5>
+                    <h5>{{ comment.created.strftime("%b %d, %Y")}}</h5>
+                    <p>{{ comment.content}}</p>
+                    
                     <div>
-                        <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/deletecomment">delete</a>
-                    </div>
-                    <div>
-                        <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/editcomment">edit</a>
+                        {% if user and user.key().id() == comment.user_id %}
+                            <div>
+                                <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/deletecomment">
+                                deletecomment</a>
+                            </div>
+                            <div>
+                                <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/editcomment">editcomment</a>
+                            </div>
+                        {% endif %}
                     </div>
                 {% endif %}
-            </div>
+            {% endfor %}
+       
 
-        {% endfor %}
+        {% if user.key().id() == post.user_id %}
+            <a href="/{{post.key().id()}}/delete">DeletePost</a>
+            <a href="/{{post.key().id()}}/edit">EditPost</a>
+        {% endif %}
+
     {% endfor %}
 
+    
 {% endblock %}
