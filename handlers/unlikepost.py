@@ -17,20 +17,13 @@ class UnlikePost(BlogHandler):
             like = Like.all().filter('user_id =', user_id).filter('post_id =', post_id).get()
 
             if like:
-                #self.redirect('/%s' % str(post.key().id()))
-                self.redirect('/blog')
-
-            else:
-                like = Like(parent=key, 
-                            user_id=self.user.key().id(),
-                            post_id=post.key().id())
-
-                post.likes += 1
-
-                like.put()
+                # cannot dislike a post if it has 0 likes
+                like.delete()
+                post.likes -= 1
                 post.put()
-
-                #self.redirect('/%s' % str(post.key().id()))
+                time.sleep(0.1)
                 self.redirect('/blog')
+
+
         else:
             self.redirect('/signin')

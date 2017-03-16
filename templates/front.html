@@ -6,6 +6,7 @@
     {% for post in posts %}
         {% if user %}
             {{ post.render(user.key().id()) | safe }}
+
             <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment">reply</a>
             
             
