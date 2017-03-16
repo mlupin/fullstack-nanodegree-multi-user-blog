@@ -9,6 +9,7 @@ class Post(db.Model):
     user_id = db.IntegerProperty(required=True)
     created = db.DateTimeProperty(auto_now_add=True)
     last_modified = db.DateTimeProperty(auto_now=True)
+    likes = db.IntegerProperty(default=0)
 
     def render(self, current_user_id):
         key = db.Key.from_path('User', int(self.user_id), parent=users_key())

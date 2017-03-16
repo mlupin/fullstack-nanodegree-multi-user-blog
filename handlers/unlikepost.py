@@ -5,7 +5,7 @@ from helpers import *
 import time
 
 
-class LikePost(BlogHandler):
+class UnlikePost(BlogHandler):
     def get(self, post_id):
         key = db.Key.from_path('Post', int(post_id), parent=blog_key())
         post = db.get(key)
@@ -29,7 +29,8 @@ class LikePost(BlogHandler):
 
                 like.put()
                 post.put()
-                time.sleep(0.1)
+
+                #self.redirect('/%s' % str(post.key().id()))
                 self.redirect('/blog')
         else:
             self.redirect('/signin')

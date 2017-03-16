@@ -11,6 +11,7 @@ from handlers.newpost import NewPost
 from handlers.editpost import EditPost
 from handlers.deletepost import DeletePost
 from handlers.likepost import LikePost
+from handlers.unlikepost import UnlikePost
 from handlers.addcomment import AddComment
 from handlers.editcomment import EditComment
 from handlers.deletecomment import DeleteComment
@@ -31,6 +32,7 @@ app = webapp2.WSGIApplication([('/', MainPage),
                                ('/([0-9]+)/delete', DeletePost),
                                ('/([0-9]+)/edit', EditPost),
                                ('/([0-9]+)/like', LikePost),
+                               ('/([0-9]+)/unlike', UnlikePost),
                                ('/([0-9]+)/([0-9]+)/addcomment', AddComment),
                                ('/([0-9]+)/([0-9]+)/([0-9]+)/editcomment', EditComment),
                                ('/([0-9]+)/([0-9]+)/([0-9]+)/deletecomment', DeleteComment),

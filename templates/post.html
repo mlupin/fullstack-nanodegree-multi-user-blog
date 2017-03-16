@@ -12,4 +12,10 @@
   <div class="post-content">
     {{post._render_text | safe}}
   </div>
+
+  <div class="post-likes">
+    <a href="/{{post.key().id()}}/like">love</a>
+        <span>{{post.likes}}</span>
+  </div>
+  
 </div>
