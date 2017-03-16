@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog</title>
-    <link rel="stylesheet" href="static/css/stylesheet.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog</title>
+  <script type="text/javascript" src="static/js/jquery-3.1.1.js"></script>
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <link rel="stylesheet" href="static/css/stylesheet.css">
+  <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  
+  <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+</head>
 
-  <body>
-    <header class="container-fluid">
+  <body class="container-fluid">
+    
+    <div class="body"></div>
+    <div class="grad"></div>
+
+    <header>
       <div class="row">
-        <div class="col-xs-4">
-          <a href="/blog" class="main-title">
-            Multi User Blog
-          </a>
+        <div class="signin col-xs-8">
+          <h1><a href="/blog" class="main-title">Multi User Blog</a></h1>
         </div>
 
-        <div class="login-area col-xs-8">
+        <div class="signin col-xs-4">
           {% if user %}
-            <a class="signin-link" href="/newpost">new post</a>
-            <a class="signin-link" href="/signout">sign out</a>
+            <a class="signin-link" href="/newpost">New Post</a>
+            <a class="signin-link" href="/signout">Sign Out</a>
           {% else %}
-            <a class="signin-link" href="/signin">sign in</a>
-            <a class="signin-link" href="/signup">sign up</a>
+            <a class="signin-link" href="/signin">Sign In</a>
+            <a class="signin-link" href="/signup">Sign Up</a>
           {% endif %}
+
+          <div id="social">
+            <a href="mailto:lupinmarina@gmail.com" target="_blank" class="zocial-gmail"></a>
+            <a href="https://www.linkedin.com/in/lupinmarina/" target="_blank" class="zocial-linkedin"></a>
+            <a href="https://github.com/mlupin" target="_blank" class="zocial-github"></a>
+          </div>
+      </div>
         </div>
       </div>
     </header> 
 
   <!-- Main -->
-
-    <div id="content">
-      {{access_error}}
-      {% block content %}
-      {% endblock %}
-    </div>
-
-  
-  <!-- Footer -->
-    <footer class="container-fluid">
+    <main class="container-fluid">
       <div class="row">
-        <div id="social" class="col-xs-12">
-          <hr>
-          <a href="mailto:lupinmarina@gmail.com" target="_blank">gmail</a>
-          <a href="https://www.linkedin.com/in/lupinmarina/" target="_blank">linkedin</a>
-          <a href="https://github.com/mlupin" target="_blank">github</a>
-        </div>
+          <div id="content" class="col-xs-12">
+            {{access_error}}
+            {% block content %}
+            {% endblock %}
+          </div>
       </div>
-    </footer>
+    </main>
+
+  <!-- Footer -->
+    
 </body>
 
 </html>

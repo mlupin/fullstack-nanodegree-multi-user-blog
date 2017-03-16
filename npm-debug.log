@@ -1,0 +1,190 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'jquery' ]
+2 info using npm@3.10.8
+3 info using node@v6.9.1
+4 verbose config Skipping project config: /Users/mlupin/.npmrc. (matches userconfig)
+5 silly loadCurrentTree Starting
+6 silly install loadCurrentTree
+7 silly install readLocalPackageData
+8 silly fetchPackageMetaData jquery
+9 silly fetchNamedPackageData jquery
+10 silly mapToRegistry name jquery
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry data Result {
+13 silly mapToRegistry   raw: 'jquery',
+13 silly mapToRegistry   scope: null,
+13 silly mapToRegistry   escapedName: 'jquery',
+13 silly mapToRegistry   name: 'jquery',
+13 silly mapToRegistry   rawSpec: '',
+13 silly mapToRegistry   spec: 'latest',
+13 silly mapToRegistry   type: 'tag' }
+14 silly mapToRegistry uri https://registry.npmjs.org/jquery
+15 verbose request uri https://registry.npmjs.org/jquery
+16 verbose request no auth needed
+17 info attempt registry request try #1 at 2:40:37 PM
+18 verbose request id 7187974511dfd071
+19 verbose etag W/"58997fec-148d0"
+20 verbose lastModified Tue, 07 Feb 2017 08:06:04 GMT
+21 http request GET https://registry.npmjs.org/jquery
+22 http 200 https://registry.npmjs.org/jquery
+23 verbose headers { server: 'nginx/1.10.1',
+23 verbose headers   'content-type': 'application/json',
+23 verbose headers   'last-modified': 'Thu, 16 Mar 2017 21:30:58 GMT',
+23 verbose headers   etag: 'W/"58cb0412-1538a"',
+23 verbose headers   'content-encoding': 'gzip',
+23 verbose headers   'cache-control': 'max-age=300',
+23 verbose headers   'content-length': '10210',
+23 verbose headers   'accept-ranges': 'bytes',
+23 verbose headers   date: 'Thu, 16 Mar 2017 21:40:37 GMT',
+23 verbose headers   via: '1.1 varnish',
+23 verbose headers   age: '274',
+23 verbose headers   connection: 'keep-alive',
+23 verbose headers   'x-served-by': 'cache-lax8624-LAX',
+23 verbose headers   'x-cache': 'HIT',
+23 verbose headers   'x-cache-hits': '34',
+23 verbose headers   'x-timer': 'S1489700437.677313,VS0,VE0',
+23 verbose headers   vary: 'Accept-Encoding' }
+24 silly get cb [ 200,
+24 silly get   { server: 'nginx/1.10.1',
+24 silly get     'content-type': 'application/json',
+24 silly get     'last-modified': 'Thu, 16 Mar 2017 21:30:58 GMT',
+24 silly get     etag: 'W/"58cb0412-1538a"',
+24 silly get     'content-encoding': 'gzip',
+24 silly get     'cache-control': 'max-age=300',
+24 silly get     'content-length': '10210',
+24 silly get     'accept-ranges': 'bytes',
+24 silly get     date: 'Thu, 16 Mar 2017 21:40:37 GMT',
+24 silly get     via: '1.1 varnish',
+24 silly get     age: '274',
+24 silly get     connection: 'keep-alive',
+24 silly get     'x-served-by': 'cache-lax8624-LAX',
+24 silly get     'x-cache': 'HIT',
+24 silly get     'x-cache-hits': '34',
+24 silly get     'x-timer': 'S1489700437.677313,VS0,VE0',
+24 silly get     vary: 'Accept-Encoding' } ]
+25 verbose get saving jquery to /Users/mlupin/.npm/registry.npmjs.org/jquery/.cache.json
+26 verbose correctMkdir /Users/mlupin/.npm correctMkdir not in flight; initializing
+27 silly install normalizeTree
+28 silly loadCurrentTree Finishing
+29 silly loadIdealTree Starting
+30 silly install loadIdealTree
+31 silly cloneCurrentTree Starting
+32 silly install cloneCurrentTreeToIdealTree
+33 silly cloneCurrentTree Finishing
+34 silly loadShrinkwrap Starting
+35 silly install loadShrinkwrap
+36 silly loadShrinkwrap Finishing
+37 silly loadAllDepsIntoIdealTree Starting
+38 silly install loadAllDepsIntoIdealTree
+39 silly resolveWithNewModule jquery@3.2.0 checking installable status
+40 silly cache add args [ 'jquery', null ]
+41 verbose cache add spec jquery
+42 silly cache add parsed spec Result {
+42 silly cache add   raw: 'jquery',
+42 silly cache add   scope: null,
+42 silly cache add   escapedName: 'jquery',
+42 silly cache add   name: 'jquery',
+42 silly cache add   rawSpec: '',
+42 silly cache add   spec: 'latest',
+42 silly cache add   type: 'tag' }
+43 silly addNamed jquery@latest
+44 verbose addNamed "latest" is being treated as a dist-tag for jquery
+45 info addNameTag [ 'jquery', 'latest' ]
+46 silly mapToRegistry name jquery
+47 silly mapToRegistry using default registry
+48 silly mapToRegistry registry https://registry.npmjs.org/
+49 silly mapToRegistry data Result {
+49 silly mapToRegistry   raw: 'jquery',
+49 silly mapToRegistry   scope: null,
+49 silly mapToRegistry   escapedName: 'jquery',
+49 silly mapToRegistry   name: 'jquery',
+49 silly mapToRegistry   rawSpec: '',
+49 silly mapToRegistry   spec: 'latest',
+49 silly mapToRegistry   type: 'tag' }
+50 silly mapToRegistry uri https://registry.npmjs.org/jquery
+51 verbose addNameTag registry:https://registry.npmjs.org/jquery not in flight; fetching
+52 verbose get https://registry.npmjs.org/jquery not expired, no request
+53 silly addNameTag next cb for jquery with tag latest
+54 silly addNamed jquery@3.2.0
+55 verbose addNamed "3.2.0" is a plain semver version for jquery
+56 silly mapToRegistry name jquery
+57 silly mapToRegistry using default registry
+58 silly mapToRegistry registry https://registry.npmjs.org/
+59 silly mapToRegistry data Result {
+59 silly mapToRegistry   raw: 'jquery',
+59 silly mapToRegistry   scope: null,
+59 silly mapToRegistry   escapedName: 'jquery',
+59 silly mapToRegistry   name: 'jquery',
+59 silly mapToRegistry   rawSpec: '',
+59 silly mapToRegistry   spec: 'latest',
+59 silly mapToRegistry   type: 'tag' }
+60 silly mapToRegistry uri https://registry.npmjs.org/jquery
+61 verbose addRemoteTarball https://registry.npmjs.org/jquery/-/jquery-3.2.0.tgz not in flight; adding
+62 verbose addRemoteTarball [ 'https://registry.npmjs.org/jquery/-/jquery-3.2.0.tgz',
+62 verbose addRemoteTarball   '3bdbba66e1eee0785532dddadb0e0d2521ca584b' ]
+63 info retry fetch attempt 1 at 2:40:37 PM
+64 info attempt registry request try #1 at 2:40:37 PM
+65 http fetch GET https://registry.npmjs.org/jquery/-/jquery-3.2.0.tgz
+66 http fetch 200 https://registry.npmjs.org/jquery/-/jquery-3.2.0.tgz
+67 silly fetchAndShaCheck shasum 3bdbba66e1eee0785532dddadb0e0d2521ca584b
+68 verbose addTmpTarball /var/folders/q3/vz2w7zb513g89h3ml0hg1z_h0000gn/T/npm-52841-61804e30/registry.npmjs.org/jquery/-/jquery-3.2.0.tgz not in flight; adding
+69 verbose addTmpTarball already have metadata; skipping unpack for jquery@3.2.0
+70 verbose correctMkdir /Users/mlupin/.npm correctMkdir not in flight; initializing
+71 silly cache afterAdd jquery@3.2.0
+72 verbose afterAdd /Users/mlupin/.npm/jquery/3.2.0/package/package.json not in flight; writing
+73 verbose correctMkdir /Users/mlupin/.npm correctMkdir not in flight; initializing
+74 verbose afterAdd /Users/mlupin/.npm/jquery/3.2.0/package/package.json written
+75 silly loadAllDepsIntoIdealTree Finishing
+76 silly loadIdealTree Finishing
+77 silly currentTree mlupin
+77 silly currentTree └── jquery@3.1.1
+78 silly idealTree mlupin
+78 silly idealTree └── jquery@3.2.0
+79 silly generateActionsToTake Starting
+80 silly install generateActionsToTake
+81 warn checkPermissions Missing write access to /Users/mlupin/node_modules
+82 silly rollbackFailedOptional Starting
+83 silly rollbackFailedOptional Finishing
+84 silly runTopLevelLifecycles Finishing
+85 silly install printInstalled
+86 warn enoent ENOENT: no such file or directory, open '/Users/mlupin/package.json'
+87 verbose enoent ENOENT: no such file or directory, open '/Users/mlupin/package.json'
+87 verbose enoent This is most likely not a problem with npm itself
+87 verbose enoent and is related to npm not being able to find a file.
+88 warn mlupin No description
+89 verbose If you need help, you may report this error at:
+89 verbose     <https://github.com/npm/npm/issues>
+90 warn mlupin No repository field.
+91 verbose If you need help, you may report this error at:
+91 verbose     <https://github.com/npm/npm/issues>
+92 warn mlupin No README data
+93 verbose If you need help, you may report this error at:
+93 verbose     <https://github.com/npm/npm/issues>
+94 warn mlupin No license field.
+95 verbose If you need help, you may report this error at:
+95 verbose     <https://github.com/npm/npm/issues>
+96 verbose stack Error: EACCES: permission denied, access '/Users/mlupin/node_modules'
+96 verbose stack     at Error (native)
+97 verbose cwd /Users/mlupin/Desktop/workspace/udacity/full-stack-nanodegree/p3-blog
+98 error Darwin 16.4.0
+99 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "jquery"
+100 error node v6.9.1
+101 error npm  v3.10.8
+102 error path /Users/mlupin/node_modules
+103 error code EACCES
+104 error errno -13
+105 error syscall access
+106 error Error: EACCES: permission denied, access '/Users/mlupin/node_modules'
+106 error     at Error (native)
+106 error  { Error: EACCES: permission denied, access '/Users/mlupin/node_modules'
+106 error     at Error (native)
+106 error   errno: -13,
+106 error   code: 'EACCES',
+106 error   syscall: 'access',
+106 error   path: '/Users/mlupin/node_modules' }
+107 error Please try running this command again as root/Administrator.
+108 verbose exit [ -13, true ]
