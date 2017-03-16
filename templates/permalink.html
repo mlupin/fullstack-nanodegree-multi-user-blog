@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% if user %}
+	{% if user %}
 		{{post.render(user.key().id()) | safe}}
 	{% else %}
 		{{ post.render(None) | safe }}
 	{% endif %}
 
 	{% if user and user.key().id() == post.user_id %}
-		<a href="/{{post.key().id()}}/delete">
-			delete
-		</a>
-		<a href="/{{post.key().id()}}/edit">
-			edit
-			</div>
-		</a>
+		<a href="/{{post.key().id()}}/delete">delete</a>
+		<a href="/{{post.key().id()}}/edit">edit</a>
 	{% endif %}
 {% endblock %}

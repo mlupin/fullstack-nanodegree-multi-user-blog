@@ -2,22 +2,9 @@
 
 {% block content %}
 
-  <!-- {% for post in posts %}
-    {{ post.render() | safe }}
-    <br><br>
-  {% endfor %} -->
-    <!-- {% if user %}
-        {{post.render(user.key().id()) | safe}}
-    {% else %}
-        {{ post.render(None) | safe }}
-    {% endif %}
-    {% if user.key().id() == post.user_id %}
-        <a href="/{{post.key().id()}}/delete">Delete</a>
-        <a href="/{{post.user_id}}}/edit">Edit</a>
-    {% endif %} -->
   {% for post in posts %}
 	    {% if user %}
-        	{{post.render(user.key().id()) | safe}}
+        	{{ post.render(user.key().id()) | safe }}
 	    {% else %}
 	        {{ post.render(None) | safe }}
 	    {% endif %}
