@@ -2,17 +2,38 @@
 
 {% block content %}
 
-  {% for post in posts %}
-	    {% if user %}
-        	{{ post.render(user.key().id()) | safe }}
-	    {% else %}
-	        {{ post.render(None) | safe }}
-	    {% endif %}
-	    {% if user.key().id() == post.user_id %}
-	        <a href="/{{post.key().id()}}/delete">Delete</a>
-	        <a href="/{{post.key().id()}}/edit">Edit</a>
-	    {% endif %}
-  {% endfor %}
-    
+    {% for post in posts %}
+        {% if user %}
+            {{ post.render(user.key().id()) | safe }}
+        {% else %}
+            {{ post.render(None) | safe }}
+        {% endif %}
+        {% if user.key().id() == post.user_id %}
+            <a href="/{{post.key().id()}}/delete">Delete</a>
+            <a href="/{{post.key().id()}}/edit">Edit</a>
+        {% endif %}
+
+        {% if user %}
+            <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment">comment</a>
+        {% endif %}
+
+        {% for comment in comments %}
+            <h5>{{ comment.author }}</h5>
+            <h5>{{ comment.created.strftime("%b %d, %Y")}}</h5>
+            <p>{{ comment.content}}</p>
+            
+            <div>
+                {% if user and user.key().id() == comment.user_id %}
+                    <div>
+                        <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/deletecomment">delete</a>
+                    </div>
+                    <div>
+                        <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/editcomment">edit</a>
+                    </div>
+                {% endif %}
+            </div>
+
+        {% endfor %}
+    {% endfor %}
 
 {% endblock %}

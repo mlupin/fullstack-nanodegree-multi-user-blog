@@ -12,4 +12,8 @@
   <div class="post-content">
     {{post._render_text | safe}}
   </div>
+  <div class="post-like">
+    <a href="/{{post.key().id()}}/like">
+        <span class="like__count">{{post.likes}} Likes</span>
+  </div>
 </div>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Add Comment</h2>
+
+    <form method="post">
+      <label>
+        <div>comment</div>
+        <textarea name="content" placeholder="Write a response...">{{content}}</textarea>
+      </label>
+
+      <div class="error">{{error}}</div>
+
+      <input type="submit"> |
+      <input type="button" value="Cancel" onClick="window.history.back();">
+    </form>
+
+
+{% endblock %}
