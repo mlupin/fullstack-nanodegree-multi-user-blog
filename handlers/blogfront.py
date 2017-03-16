@@ -5,8 +5,13 @@ from google.appengine.ext import db
 
 class BlogFront(BlogHandler):
     def get(self):
-        # posts  = greetings = Post.all().order('-created')
-        posts = db.GqlQuery(
-          "select * from Post order by created desc limit 10")
+        if self.user:
+            posts = greetings = Post.all().order('-created')
+        #posts = db.GqlQuery(
+        #    "select * from Post order by created desc limit 10")
+            self.render('front.html', posts=posts)
 
-        self.render('front.html', posts=posts)
+        else:
+            self.render("home.html")
+        # posts = greetings = Post.all().order('-created')
+        # self.render('front.html', posts=posts)

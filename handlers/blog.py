@@ -1,9 +1,7 @@
 import webapp2
 from models.user import User
-
-from helpers import render_str
-from helpers import make_secure_val
-from helpers import check_secure_val
+from models.post import Post
+from helpers import *
 
 
 class BlogHandler(webapp2.RequestHandler):
