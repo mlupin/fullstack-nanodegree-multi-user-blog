@@ -19,8 +19,10 @@ class NewPost(BlogHandler):
         content = self.request.get('content')
 
         if subject and content:
+            author = self.user.name
             p = Post(parent=blog_key(), subject=subject,
-                     content=content, user_id=self.user.key().id())
+                     content=content, author=author,
+                     user_id=self.user.key().id())
             p.put()
             self.redirect('/%s' % str(p.key().id()))
         else:

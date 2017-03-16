@@ -1,7 +1,7 @@
 <div class="post">
   <div class="post-heading">
     <div class="post-title">
-      {{post.subject}}
+      {{post.subject}} by {{post.author}}
     </div>
 
     <div class="post-date">
@@ -11,9 +11,5 @@
 
   <div class="post-content">
     {{post._render_text | safe}}
-  </div>
-  <div class="post-like">
-    <a href="/{{post.key().id()}}/like">
-        <span class="like__count">{{post.likes}} Likes</span>
   </div>
 </div>
