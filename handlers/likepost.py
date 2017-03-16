@@ -11,25 +11,28 @@ class LikePost(BlogHandler):
         post = db.get(key)
 
         if self.user:
-            user_id = self.user.key().id()
-            post_id = post.key().id()
-
-            like = Like.all().filter('user_id =', user_id).filter('post_id =', post_id).get()
-
-            if like:
-                #self.redirect('/%s' % str(post.key().id()))
-                self.redirect('/blog')
-
+            # User cannot like thier own posts
+            if post.user_id == self.user.key().id():
+                error = "You cannot like your own post!"
+                self.render("base.html", access_error=error)
             else:
-                like = Like(parent=key, 
-                            user_id=self.user.key().id(),
-                            post_id=post.key().id())
+                user_id = self.user.key().id()
+                post_id = post.key().id()
+                like = Like.all().filter('user_id =', user_id).filter('post_id =', post_id).get()           
 
-                post.likes += 1
+                # User can only like a post once
+                if like:
+                    self.redirect('/blog')
 
-                like.put()
-                post.put()
-                time.sleep(0.1)
-                self.redirect('/blog')
+                else:
+                    like = Like(parent=key, 
+                                user_id=self.user.key().id(),
+                                post_id=post.key().id())
+
+                    post.likes += 1
+                    like.put()
+                    post.put()
+                    time.sleep(0.1)
+                    self.redirect('/blog')
         else:
             self.redirect('/signin')

@@ -13,10 +13,15 @@
     {{post._render_text | safe}}
   </div>
 
-  <div class="post-likes">
-    <a href="/{{post.key().id()}}/like">+</a>
-    <a href="/{{post.key().id()}}/unlike">-</a>
+
+<!--   TODO: make it so options are only visible when user hasn't yet liked a post
+             and so that a user can only click unlike if the user already liked the post
+             prevent multiple likes for one user
+ -->  
+ <div class="post-likes">
+      
         <span>{{post.likes}}</span>
+
   </div>
   
 </div>
