@@ -13,6 +13,12 @@
                     <a href="/{{post.key().id()}}/edit" class="fontawesome-pencil" alt="Edit Post"></a>
                 </div>
             {% else %}
+                <!-- {% for like in likes if user.key().id() == like.user_id %}
+                    <a href="/{{post.key().id()}}/unlike" class="fontawesome-heart-empty">Unlike</a>
+                {% endfor %} -->
+
+                
+
                 <div id="fontawesome" class="post-actions">
                     <a href="/{{post.key().id()}}/like" class="fontawesome-heart">Like</a>
                     <a href="/{{post.key().id()}}/unlike" class="fontawesome-heart-empty">Unlike</a>

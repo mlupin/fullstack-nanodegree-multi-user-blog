@@ -1,6 +1,7 @@
 from handlers.blog import BlogHandler
 from models.post import Post
 from models.comment import Comment
+from models.like import Like
 from google.appengine.ext import db
 
 
@@ -12,7 +13,8 @@ class BlogFront(BlogHandler):
             posts = greetings = Post.all().order('-created')
             # Show from oldest-newest comments
             comments = replies = Comment.all().order('created')
-            self.render('front.html', posts=posts, comments=comments)
+            likes = hearts = Like.all().order('created')
+            self.render('front.html', posts=posts, comments=comments, likes=likes)
 
         else:
             self.render("home.html")
