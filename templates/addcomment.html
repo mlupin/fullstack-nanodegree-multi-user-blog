@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Add Comment</h2>
 
-    <form method="post">
-      <label>
-        <div>comment</div>
-        <textarea name="content" placeholder="Write a response...">{{content}}</textarea>
-      </label>
+     <div class="header col-xs-12">
+        <h4>Add Comment</h4>
+        <p class="error">{{error}}</p>
+    </div>
 
-      <div class="error">{{error}}</div>
+    <div class="signin col-xs-12">
+        <form method="post">
+            <div class="error">{{error}}</div>
+            
+            <h5>Comment</h5>
+            <textarea name="content" placeholder="Write a response...">{{content}}</textarea>
+            <br>
 
-      <input type="submit"> |
-      <input type="button" value="Cancel" onClick="window.history.back();">
-    </form>
+            <input type="submit" value="Post">
+            <input type="submit" value="Cancel" onClick="window.history.back();">
+        </form>
+    </div>
 
 
 {% endblock %}

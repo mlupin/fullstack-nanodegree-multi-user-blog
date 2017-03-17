@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog</title>
   <script type="text/javascript" src="static/js/jquery-3.1.1.js"></script>
-  <link rel="stylesheet" href="static/css/bootstrap.css">
-  <link rel="stylesheet" href="static/css/stylesheet.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/stylesheet.css">
   <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   
@@ -21,17 +21,17 @@
 
     <header>
       <div class="row">
-        <div class="signin col-xs-8">
+        <div class="col-xs-8">
           <h1><a href="/blog" class="main-title">Multi User Blog</a></h1>
         </div>
 
-        <div class="signin col-xs-4">
+        <div class="links col-xs-4">
           {% if user %}
-            <a class="signin-link" href="/newpost">New Post</a>
-            <a class="signin-link" href="/signout">Sign Out</a>
+            <a href="/newpost">New Post</a>
+            <a href="/signout">Sign Out</a>
           {% else %}
-            <a class="signin-link" href="/signin">Sign In</a>
-            <a class="signin-link" href="/signup">Sign Up</a>
+            <a href="/signin">Sign In</a>
+            <a href="/signup">Sign Up</a>
           {% endif %}
 
           <div id="fontawesome">

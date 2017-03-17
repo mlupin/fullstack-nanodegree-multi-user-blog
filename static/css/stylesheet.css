@@ -5,15 +5,23 @@
 /* fontawesome */
 [class*="fontawesome-"]:before {
     font-family: 'FontAwesome', sans-serif;
-    color: #2d3c49;
+    color: #777;
     display: inline-block;
-    text-shadow: 2px 2px 2px #7d97ad;
-    width: 2em;
+    width: 1em;
 }
 
-header {
-    position: relative;
+.post-actions {
+    font-family: 'FontAwesome', sans-serif;
+    color: #888;
+    display: inline;
+    width: 1em;
 }
+
+
+/*header {
+    position: relative;
+}*/
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -23,12 +31,21 @@ header {
 body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
-
+    background:
+      linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+      linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+      background-color: #131313;
+      background-size: 20px 20px;
     width: 800px;
     margin: 0 auto;
     padding: 10px;
-    color: #333;
+    color: #888;
 }
+
 
 h2 {
     font-size: 24px;
@@ -40,36 +57,17 @@ h2 {
     color: red;
 }
 
-label {
+.links {
     display: block;
-    font-size: 20px;
+    color: #444;
+    font-size: 16px;
+    text-align: right;
+    margin: 10px 0 10px 0;
+    text-decoration: none;
 }
-
-label + label {
-    margin-top: 20px;
-}
-
-input[type=text] {
-    width: 500px;
-    font-size: 20px;
-    padding: 2px;
-    font-family: monospace;
-}
-
-textarea {
-    width: 500px;
-    height: 400px;
-    font-size: 17px;
-    font-family: monospace;
-}
-
-input[type=submit] {
-  font-size: 24px;
-}
-
 .main-title {
     display: block;
-    color: #222;
+    color: #888;
     font-size: 40px;
     font-weight: bold;
     text-align: left;
@@ -83,7 +81,7 @@ input[type=submit] {
 
 .post-heading {
     position: relative;
-    border-bottom: 3px solid #666;
+    border-bottom: 3px solid #555;
 }
 
 .post-title {
@@ -95,7 +93,7 @@ input[type=submit] {
     position: absolute;
     right: 0px;
     bottom: 0px;
-    color: #999;
+    color: #666;
 
 }
 
@@ -105,50 +103,6 @@ input[type=submit] {
 
 
 /* Sign in and Sign up Forms */
-body{
-    margin: 0;
-    padding: 0;
-    background: #fff;
-
-    color: #fff;
-    font-family: Arial;
-    font-size: 12px;
-}
-
-.body{
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -40px;
-    bottom: -40px;
-    max-width: 100%;
-    height: auto;
-    background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
-    background-size: cover;
-    -webkit-filter: blur(5px);
-    z-index: 0;
-}
-
-.grad{
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -40px;
-    bottom: -40px;
-    width: auto;
-    height: auto;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
-    z-index: 1;
-    opacity: 0.7;
-}
-
-.header{
-    position: absolute;
-    top: calc(50% - 35px);
-    left: calc(50% - 255px);
-    z-index: 2;
-}
-
 .header div{
     float: left;
     color: #fff;
@@ -162,13 +116,11 @@ body{
 }
 
 .signin{
-    position: relative;
-    top: calc(50% - 75px);
-    left: calc(50% - 50px);
+    margin-left: auto;
+    margin-right: auto;
     height: 150px;
-    width: 350px;
+    width: 40%;
     padding: 10px;
-    z-index: 2;
 }
 
 .signin input[type=text]{
@@ -182,6 +134,7 @@ body{
     font-size: 16px;
     font-weight: 400;
     padding: 4px;
+    opacity: 0.6;
 }
 
 .signin input[type=password]{
@@ -287,14 +240,14 @@ footer {
     text-align: center;
 }
 
-#social a {
+#font-awesome a {
     margin: 0 1em 0 0;
 }
 
-#social a:last-of-type {
+#font-awesome a:last-of-type {
     margin: 0;
 }
 
-#social {
+#font-awesome {
     line-height: 2em;
 }

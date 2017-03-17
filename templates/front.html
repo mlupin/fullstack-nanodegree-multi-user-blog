@@ -6,26 +6,31 @@
     {% for post in posts %}
         {% if user %}
             {{ post.render(user.key().id()) | safe }}
-            {% if user %}
-                <a href="/{{post.key().id()}}/like">+</a>
-                <a href="/{{post.key().id()}}/unlike">-</a>
+            
+            {% if user.key().id() == post.user_id %}
+                <div id="fontawesome" class="post-actions">
+                    <a href="/{{post.key().id()}}/delete" class="fontawesome-trash" alt="Delete Post"></a>
+                    <a href="/{{post.key().id()}}/edit" class="fontawesome-pencil" alt="Edit Post"></a>
+                </div>
             {% endif %}
-            <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment">reply</a>
-            
-            
+        {% if user %}
+                <div id="fontawesome" class="post-actions">
+                    <a href="/{{post.key().id()}}/like" class="fontawesome-heart"></a>
+                    <a href="/{{post.key().id()}}/unlike" class="fontawesome-heart-empty"></a>
+                </div>
+            {% endif %}
+            <div id="fontawesome" class="post-actions">
+                <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment" class="fontawesome-comment" alt="Comment"></a>
+            </div>
         {% else %}
             {{ post.render(None) | safe }}
         {% endif %}
         
-        {% if user.key().id() == post.user_id %}
-            <a href="/{{post.key().id()}}/delete">DeletePost</a>
-            <a href="/{{post.key().id()}}/edit">EditPost</a>
-        {% endif %}
+        
 
         {% for comment in comments %}
             {% if post.key().id() == comment.post_id %}
-                <h5>{{ comment.author }}</h5>
-                <h5>{{ comment.created.strftime("%b %d, %Y")}}</h5>
+                <h5>Reply by {{ comment.author }} on {{ comment.created.strftime("%b %d, %Y")}}</h5>
                 <p>{{ comment.content}}</p>
                 
                 <div>

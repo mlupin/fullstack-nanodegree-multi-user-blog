@@ -2,48 +2,42 @@
 
 {% block content %}
   
-    <div class="container-fluid">
-        <div class="row">
-            <div class="header col-xs-12">
-                <h4>Create a New Account</h4>
-                <p class="error">{{error}}</p>
-            </div>
-
-            <div class="signin col-xs-12">
-                <form method="post">
-                    <div class="form-entry">
-                        <h6>Username</h6>
-                        <p class="error">{{error_username}}</p>
-                        <input placeholder="Username" type="text" name="username" value="{{username}}">
-                    </div>
-                    
-                    <div class="form-entry">
-                        <h6>Password</h6>
-                        <p class="error">{{error_password}}</p>
-                        <input placeholder="Password" type="password" name="password" value="">
-                    </div>
-                    
-                    <div class="form-entry">
-                        <h6>Password Confirmation</h6>
-                        <p class="error">{{error_verify}}</p>
-                        <input placeholder="Repeat Password" type="password" name="verify" value="">
-                    </div>
-                    
-                    <div class="form-entry">
-                        <h6>Email (optional)</h6>
-                        <p class="error">{{error_email}}</p>
-                        <input placeholder="username@example.com" type="text" name="email" value="{{email}}">
-                    </div>
-                    
-                    <div class="form-entry">
-                        <input class="submit-button" type="submit" value="Create New Account">
-                        <br>
-                        <span>By submitting this form you agree to Blog's </span><a href="">Terms and Conditions</a>.
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="header col-xs-12">
+        <h4>Create a New Account</h4>
+        <p class="error">{{error}}</p>
     </div>
+
+    <div class="signin col-xs-12">
+        <form method="post">
+
+                <h6>Username</h6>
+                <p class="error">{{error_username}}</p>
+                <input placeholder="Username" type="text" name="username" value="{{username}}">
+                <br>
+            
+                <h6>Password</h6>
+                <p class="error">{{error_password}}</p>
+                <input placeholder="Password" type="password" name="password" value="">
+                <br>
+
+                <h6>Password Confirmation</h6>
+                <p class="error">{{error_verify}}</p>
+                <input placeholder="Repeat Password" type="password" name="verify" value="">
+                <br>
+
+
+                <h6>Email (optional)</h6>
+                <p class="error">{{error_email}}</p>
+                <input placeholder="username@example.com" type="text" name="email" value="{{email}}">
+                <br>
+
+                <input class="submit-button" type="submit" value="Create New Account">
+                <br>
+                <span>By submitting this form you agree to Blog's </span><a href="">Terms and Conditions</a>.
+
+        </form>
+    </div>
+
 
   
 {% endblock %}
