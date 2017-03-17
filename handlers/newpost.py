@@ -5,19 +5,18 @@ from helpers import *
 
 class NewPost(BlogHandler):
     def get(self):
+        # Logged in users can create new posts
         if self.user:
             self.render("newpost.html")
+        # Logged out users are redirected to the login page
         else:
-            error = "You must be signed in to create a post."
-            self.render("base.html", access_error=error)
-
-    def post(self):
-        if not self.user:
             self.redirect('/blog')
 
+    def post(self):
         subject = self.request.get('subject')
         content = self.request.get('content')
 
+        # Users can only submit a post if it has a subject and content
         if subject and content:
             author = self.user.name
             p = Post(parent=blog_key(), subject=subject,

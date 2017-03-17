@@ -23,11 +23,3 @@ class Post(db.Model):
     @classmethod
     def by_id(cls, uid):
         return Post.get_by_id(uid, parent=blog_key())
-
-    @classmethod
-    def get_all(cls):
-        return Post.all()
-
-    @classmethod
-    def get_ten(cls):
-        return Post.all().fetch(limit=10)

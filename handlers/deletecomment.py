@@ -8,15 +8,18 @@ import time
 
 class DeleteComment(BlogHandler):
     def get(self, post_id, user_id, comment_id):
-        if self.user:  # If user is signed in
+        # Logged in users can delete comments
+        if self.user:
             postkey = db.Key.from_path('Post', int(post_id), parent=blog_key())
             commentkey = db.Key.from_path('Comment', int(comment_id), parent=postkey)
             comment = db.get(commentkey)
-            # If the user is the author of the comment
+
+           # Users can only delete comments they themselves have made
             if self.user.key().id() == int(comment.user_id):
                 comment.delete()
                 time.sleep(0.1)
                 self.redirect('/blog')
+        # Logged out users are redirected to the login page
         elif not self.user:
             self.redirect('/signin')
         else:

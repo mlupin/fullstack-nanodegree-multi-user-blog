@@ -1,5 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,200,400);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
 
 * {
     -webkit-box-sizing: border-box;
@@ -49,7 +55,7 @@ header,
 }
 
 .comment {
-    margin-top: 2px;
+    margin: 2px 0 2px 0;
     border: 1px solid lightgrey;
     border-radius: 5px;
 }
@@ -64,6 +70,7 @@ header,
 
 .post-title {
     font-size: 22px;
+    margin-top: 5px;
 }
 
 .post-date {
@@ -79,13 +86,11 @@ header,
 
 
 /* Sign in and Sign up Forms */
-
 .signin{
-    width: 40%;
+    max-width: 40%;
     margin-left: 30%;
     margin-right: 30%;
-    
-    padding: 30px;
+    padding: 15px;
 }
 
 .signin input[type=text]{

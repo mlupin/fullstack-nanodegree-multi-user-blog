@@ -50,7 +50,7 @@ def valid_email(email):
 
 
 # User Authentication using salt and hashing
-secret = 'fart'
+secret = 'bearclaw'
 
 
 def make_salt(length=5):
