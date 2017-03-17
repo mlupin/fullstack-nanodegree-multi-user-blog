@@ -2,8 +2,8 @@
 
 {% block content %}
 
-        
-    {% for post in posts %}
+    <div class="post col-xs-12">
+        {% for post in posts %}
         {% if user %}
             {{ post.render(user.key().id()) | safe }}
             
@@ -27,26 +27,29 @@
         {% endif %}
         
         
-
-        {% for comment in comments %}
+        <div class="comments">
+            {% for comment in comments %}
             {% if post.key().id() == comment.post_id %}
-                <h5>Reply by {{ comment.author }} on {{ comment.created.strftime("%b %d, %Y")}}</h5>
-                <p>{{ comment.content}}</p>
-                
-                <div>
-                    {% if user and user.key().id() == comment.user_id %}
-                        <div>
-                            <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/deletecomment">
-                            deletecomment</a>
-                        </div>
-                        <div>
-                            <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/editcomment">editcomment</a>
-                        </div>
-                    {% endif %}
-                </div>
+                <div class="comment">
+                    <p>{{ comment.author }}: {{ comment.content}}</p>
+                        {% if user.key().id() == comment.user_id %}
+                            <div class="comment-info">
+                                <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/deletecomment" class="fontawesome-trash" alt="Delete Comment">Delete
+                                </a> | 
+                                <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/editcomment" class="fontawesome-pencil" alt="Edit Comment">Edit</a> | 
+                                {{ comment.created.strftime("%b %d, %Y")}}
+                            </div>
+                        {% else %}
+                            {{ comment.created.strftime("%b %d, %Y")}}
+                        {% endif %}
+                </div>  
             {% endif %}
         {% endfor %}
+        </div>
+        
     {% endfor %}
 
+    </div>   
+    
     
 {% endblock %}

@@ -8,7 +8,7 @@ class BlogFront(BlogHandler):
     def get(self):
         if self.user:
             posts = greetings = Post.all().order('-created')
-            comments = replies = Comment.all().order('-created')
+            comments = replies = Comment.all().order('created')
             self.render('front.html', posts=posts, comments=comments)
 
         else:

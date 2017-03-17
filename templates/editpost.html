@@ -2,26 +2,19 @@
 
 {% block content %}
 
-    <div class="header col-xs-12">
-        <h4>Edit Post</h4>
-        <p class="error">{{error}}</p>
-    </div>
-
     <div class="signin col-xs-12">
         <form method="post">
             <div class="error">{{error}}</div>
             
             <h5>Subject</h5>
             <input type="text" name="subject" value="{{subject}}">
-            <br>
 
             <h5>Post</h5>
             <textarea name="content">{{content}}</textarea>
-            <br>
 
-            <input type="submit" value="Post">
+            <input type="submit" value="Edit Post">
             <input type="submit" value="Cancel" onClick="window.history.back();">
-
+            <p class="error">{{error}}</p>
         </form>
     </div>
 
