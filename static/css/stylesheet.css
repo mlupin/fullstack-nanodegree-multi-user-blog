@@ -17,11 +17,6 @@
     width: 1em;
 }
 
-
-/*header {
-    position: relative;
-}*/
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -228,26 +223,4 @@ h2 {
 
 ::-moz-input-placeholder{
    color: rgba(255,255,255,0.6);
-}
-
-/* Footer */
-a:hover [class*="zocial-"]:before {
-    color: #3d85c6;
-}
-
-footer {
-    margin: 0 auto;
-    text-align: center;
-}
-
-#font-awesome a {
-    margin: 0 1em 0 0;
-}
-
-#font-awesome a:last-of-type {
-    margin: 0;
-}
-
-#font-awesome {
-    line-height: 2em;
 }

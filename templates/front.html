@@ -12,15 +12,15 @@
                     <a href="/{{post.key().id()}}/delete" class="fontawesome-trash" alt="Delete Post"></a>
                     <a href="/{{post.key().id()}}/edit" class="fontawesome-pencil" alt="Edit Post"></a>
                 </div>
-            {% endif %}
-        {% if user %}
+            {% else %}
                 <div id="fontawesome" class="post-actions">
-                    <a href="/{{post.key().id()}}/like" class="fontawesome-heart"></a>
-                    <a href="/{{post.key().id()}}/unlike" class="fontawesome-heart-empty"></a>
+                    <a href="/{{post.key().id()}}/like" class="fontawesome-heart">Like</a>
+                    <a href="/{{post.key().id()}}/unlike" class="fontawesome-heart-empty">Unlike</a>
                 </div>
             {% endif %}
+
             <div id="fontawesome" class="post-actions">
-                <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment" class="fontawesome-comment" alt="Comment"></a>
+                <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment" class="fontawesome-comment" alt="Comment"> Comment</a>
             </div>
         {% else %}
             {{ post.render(None) | safe }}

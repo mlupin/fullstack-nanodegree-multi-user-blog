@@ -20,7 +20,14 @@
  -->  
  <div class="post-likes">
       
-        <span>{{post.likes}}</span>
+        <span>
+          {{post.likes}}
+          {% if post.likes == 1 %}
+            like
+          {% else %}
+            likes
+          {% endif%} 
+        </span>
 
   </div>
   
