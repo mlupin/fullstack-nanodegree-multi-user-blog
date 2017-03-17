@@ -11,3 +11,8 @@ Clone the [fullstack-nanodegree-blog](https://github.com/mlupin/udacity-multi-us
   cd udacity-multi-user-blog
   dev_appserver.py .
   ```
+
+ ### Recognition
+Login template code and design obtained from Colorlib: Transparent Form With Logo
+https://colorlib.com/wp/html5-and-css3-login-forms/
+To download: http://codepen.io/motorlatitude/share/zip/JFkro/

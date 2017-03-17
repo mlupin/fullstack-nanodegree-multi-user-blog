@@ -89,6 +89,12 @@ header,
 
 
 /* Sign in and Sign up Forms */
+
+/*Login template code and design obtained from Colorlib: Transparent Form With Logo
+https://colorlib.com/wp/html5-and-css3-login-forms/
+To download: http://codepen.io/motorlatitude/share/zip/JFkro/*/
+
+
 .signin{
     max-width: 40%;
     margin-left: 30%;
