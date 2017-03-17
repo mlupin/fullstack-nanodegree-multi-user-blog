@@ -4,7 +4,7 @@
 
 /* fontawesome */
 [class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
+    font-family: 'FontAwesome', sans-serif;
 }
 
 * {
@@ -30,6 +30,7 @@ header,
     font-family: 'Lato', sans-serif;
     color: black;
 }
+
 .error {
     color: red;
 }
@@ -48,6 +49,7 @@ header,
     display: inline;
     width: 1em;
 }
+
 .main-title {
     display: block;
     color: black;
@@ -59,6 +61,7 @@ header,
     border: 1px solid lightgrey;
     border-radius: 5px;
 }
+
 .post + .post {
     margin-top: 15px;
 }

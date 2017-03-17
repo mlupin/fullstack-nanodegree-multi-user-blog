@@ -18,7 +18,7 @@ class EditPost(BlogHandler):
                             content=post.content)
             else:
                 self.redirect('/blog')
-        # Logged out users are edit to the login page
+        # Logged out users are redirected to the login page
         else:
             self.redirect('/signin')
 
