@@ -17,4 +17,4 @@ class PostPage(BlogHandler):
             self.error(404)
             return
 
-        self.render("permalink.html", post=post, comments=comments)
+        self.redirect("/blog")
