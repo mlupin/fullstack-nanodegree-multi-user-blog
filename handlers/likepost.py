@@ -9,7 +9,6 @@ class LikePost(BlogHandler):
     @signin_required
     def get(self, post_id):
         """
-        User must be signed in to like a post.
         Updates like count if the post exists and if user is not the author
         of the post. User can only like a post once.
         """

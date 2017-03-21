@@ -9,7 +9,6 @@ class UnlikePost(BlogHandler):
     @signin_required
     def get(self, post_id):
         """
-        User must be signed in to unlike a post.
         Updates like count if the post exists and if user like the post.
         """
         key = db.Key.from_path('Post', int(post_id), parent=blog_key())

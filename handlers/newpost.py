@@ -14,7 +14,6 @@ class NewPost(BlogHandler):
     @signin_required
     def post(self):
         """
-        User must be signed in to create a post.
         Renders blog page with new post if subject and content are not none.
         Renders newpost page with error if subject or content is none.
         """

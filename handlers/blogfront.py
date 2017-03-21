@@ -10,7 +10,6 @@ class BlogFront(BlogHandler):
     @signin_required
     def get(self):
         """
-        User must be signed in to see the front page.
         Renders the front blog page with users' posts, likes, and comments.
         Posts are sorted from newest-oldest
         Comments are sorted from oldest-newest

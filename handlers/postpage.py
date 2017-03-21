@@ -4,7 +4,7 @@ from helpers import blog_key
 
 from google.appengine.ext import db
 
-# file no longer in use
+
 class PostPage(BlogHandler):
     def get(self, post_id):
         key = db.Key.from_path('Post', int(post_id), parent=blog_key())

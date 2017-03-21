@@ -43,20 +43,23 @@ def blog_key(name='default'):
 
 
 # User validation
-USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
-PASS_RE = re.compile(r"^.{3,20}$")
-EMAIL_RE = re.compile(r'^[\S]+@[\S]+\.[\S]+$')
+
+
+
 
 
 def valid_username(username):
+    USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
     return username and USER_RE.match(username)
 
 
 def valid_password(password):
+    PASS_RE = re.compile(r"^.{3,20}$")
     return password and PASS_RE.match(password)
 
 
 def valid_email(email):
+    EMAIL_RE = re.compile(r'^[\S]+@[\S]+\.[\S]+$')
     return not email or EMAIL_RE.match(email)
 
 
@@ -81,10 +84,16 @@ def valid_pw(name, password, h):
 
 
 def make_secure_val(val):
+    """
+    Creates secure value using secret
+    """
     return '%s|%s' % (val, hmac.new(secret, val).hexdigest())
 
 
 def check_secure_val(secure_val):
+    """
+        Verifies secure value against secret.
+    """
     val = secure_val.split('|')[0]
     if secure_val == make_secure_val(val):
         return val

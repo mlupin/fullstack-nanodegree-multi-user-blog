@@ -11,7 +11,6 @@ class EditComment(BlogHandler):
     @signin_required
     def get(self, post_id, user_id, comment_id):
         """
-        User must be signed in to edit a comment.
         Redirects user to edit page if the comment exists and if the user is
         the author of the comment.
         """
@@ -28,7 +27,6 @@ class EditComment(BlogHandler):
     @signin_required
     def post(self, post_id, user_id, comment_id):
         """
-        User must be signed in to edit a comment.
         Updates comment if it exists, if user is the author of the comment, and
         if content is not none.
         Redirects user to blog page after updating the comment.

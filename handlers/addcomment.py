@@ -16,7 +16,6 @@ class AddComment(BlogHandler):
     @signin_required
     def post(self, post_id, user_id):
         """
-        User must be signed in to add a comment.
         Renders blog page with new comment if comment is not none.
         Renders addcomment page with error if content is none.
         """

@@ -8,7 +8,6 @@ class DeletePost(BlogHandler):
     @signin_required
     def get(self, post_id):
         """
-        User must be signed in to delete a post.
         Redirects user to confirmation page if the post exists and if the user
         is the author of the post.
         """
@@ -24,7 +23,6 @@ class DeletePost(BlogHandler):
     @signin_required
     def post(self, post_id):
         """
-        User must be signed in to delete a post.
         Deletes post if it exists and if user is the author of the post.
         Redirects user to blog page after deleting the post.
         """
