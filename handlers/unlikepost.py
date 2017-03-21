@@ -6,17 +6,18 @@ import time
 
 
 class UnlikePost(BlogHandler):
+    @signin_required
     def get(self, post_id):
         key = db.Key.from_path('Post', int(post_id), parent=blog_key())
         post = db.get(key)
 
         # Logged in users can unlike a post if a post exists
-        if self.user and post:
+        if post:
             user_id = self.user.key().id()
             post_id = post.key().id()
 
-            like = Like.all().filter('user_id =', user_id).filter('post_id =',
-                                                                  post_id).get()
+            like = Like.all().filter('user_id =', user_id).filter(
+                                     'post_id =', post_id).get()
 
             # Logged in users can only unlike posts if they already liked it
             if like and like.user_id == self.user.key().id():
@@ -29,7 +30,5 @@ class UnlikePost(BlogHandler):
                 return self.redirect('/blog')
             else:
                 return self.redirect('/blog')
-
-        # Logged out users are redirected to the login page
-        elif not self.user:
-            return self.redirect('/signin')
+        elif not post:
+            return self.redirect('/blog')

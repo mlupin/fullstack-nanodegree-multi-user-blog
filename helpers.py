@@ -15,6 +15,17 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir),
                                autoescape=True)
 
+def signin_required(func):
+    """
+    A decorator to confirm a user is logged in or redirect as needed.
+    """
+    def signin(self, *args, **kwargs):
+        # Redirect to login if user not logged in, else execute func.
+        if not self.user:
+            self.redirect("/signin")
+        else:
+            func(self, *args, **kwargs)
+    return signin
 
 def render_str(template, **params):
     t = jinja_env.get_template(template)
