@@ -12,7 +12,7 @@ class DeletePost(BlogHandler):
         post = db.get(key)
 
         # Users can only delete posts they themselves have made
-        if post and self.user.key().id() == int(post.user_id):
+        if post is not None and self.user.key().id() == int(post.user_id):
             return self.render('deletepost.html', post=post)
         else:
             return self.redirect('/blog')
@@ -23,7 +23,7 @@ class DeletePost(BlogHandler):
         post = db.get(key)
 
         # Users can only delete posts they themselves have made
-        if post and self.user.key().id() == int(post.user_id):
+        if post is not None and self.user.key().id() == int(post.user_id):
             key = db.Key.from_path('Post', int(post_id), parent=blog_key())
             post = db.get(key)
             post.delete()

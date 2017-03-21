@@ -12,7 +12,7 @@ class EditPost(BlogHandler):
         post = db.get(key)
 
         # Users can only edit posts they themselves have made
-        if post and post.user_id == self.user.key().id():
+        if post is not None and post.user_id == self.user.key().id():
             return self.render('editpost.html', subject=post.subject,
                                content=post.content)
         else:
@@ -27,7 +27,7 @@ class EditPost(BlogHandler):
         post = db.get(key)
 
         # Users can only submit a post if it has a subject and content
-        if post and post.user_id == self.user.key().id():
+        if post is not None and post.user_id == self.user.key().id():
             if subject and content:
                 key = db.Key.from_path('Post', int(post_id), parent=blog_key())
                 post = db.get(key)

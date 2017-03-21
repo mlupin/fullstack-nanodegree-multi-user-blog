@@ -17,7 +17,7 @@ class EditComment(BlogHandler):
         comment = db.get(commentkey)
 
         # Users can only edit comments they themselves have made
-        if comment and self.user.key().id() == int(comment.user_id):
+        if comment is not None and self.user.key().id() == int(comment.user_id):
                 return self.render('editcomment.html', content=comment.content)
         else:
             return self.redirect('/blog')
@@ -31,7 +31,7 @@ class EditComment(BlogHandler):
         comment = db.get(commentkey)
 
         # Users can only edit a comment if comment has content
-        if comment and self.user.key().id() == int(comment.user_id):
+        if comment is not None and self.user.key().id() == int(comment.user_id):
             if content:
                 comment.content = content
                 comment.put()

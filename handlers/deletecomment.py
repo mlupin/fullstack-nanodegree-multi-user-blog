@@ -16,7 +16,7 @@ class DeleteComment(BlogHandler):
         comment = db.get(commentkey)
 
         # Users can only delete comments they themselves have made
-        if comment and self.user.key().id() == int(comment.user_id):
+        if comment is not None and self.user.key().id() == int(comment.user_id):
             comment.delete()
             time.sleep(0.1)
             return self.redirect('/blog')

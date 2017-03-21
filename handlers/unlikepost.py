@@ -12,7 +12,7 @@ class UnlikePost(BlogHandler):
         post = db.get(key)
 
         # Logged in users can unlike a post if a post exists
-        if post:
+        if post is not None:
             user_id = self.user.key().id()
             post_id = post.key().id()
 
@@ -30,5 +30,5 @@ class UnlikePost(BlogHandler):
                 return self.redirect('/blog')
             else:
                 return self.redirect('/blog')
-        elif not post:
+        else:
             return self.redirect('/blog')
