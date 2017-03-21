@@ -9,9 +9,13 @@ from google.appengine.ext import db
 class BlogFront(BlogHandler):
     @signin_required
     def get(self):
-        # Show from newest-oldest posts
+        """
+        User must be signed in to see the front page.
+        Renders the front blog page with users' posts, likes, and comments.
+        Posts are sorted from newest-oldest
+        Comments are sorted from oldest-newest
+        """
         posts = greetings = Post.all().order('-created')
-        # Show from oldest-newest comments
         comments = replies = Comment.all().order('created')
         likes = hearts = Like.all().order('created')
         return self.render('front.html', posts=posts, comments=comments,

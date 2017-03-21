@@ -6,16 +6,21 @@ from helpers import *
 class NewPost(BlogHandler):
     @signin_required
     def get(self):
-        # Logged in users can create new posts
+        """
+        Renders newpost page if user is signed in
+        """
         return self.render("newpost.html")
 
     @signin_required
     def post(self):
-        # Logged in users can create new posts
+        """
+        User must be signed in to create a post.
+        Renders blog page with new post if subject and content are not none.
+        Renders newpost page with error if subject or content is none.
+        """
         subject = self.request.get('subject')
         content = self.request.get('content')
 
-        # Users can only submit a post if it has a subject and content
         if subject and content:
             author = self.user.name
             post = Post(parent=blog_key(), subject=subject,

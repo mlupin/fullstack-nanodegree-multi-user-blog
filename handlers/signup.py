@@ -10,6 +10,9 @@ class Signup(BlogHandler):
         self.render("signup-form.html")
 
     def post(self):
+        """
+        Checks if inputs are valid.
+        """
         have_error = False
         self.username = self.request.get('username')
         self.password = self.request.get('password')
@@ -40,7 +43,9 @@ class Signup(BlogHandler):
             self.done()
 
     def done(self):
-        # make sure the user doesn't already exist
+        """
+        Checks if user already exists
+        """
         u = User.by_name(self.username)
         if u:
             error = 'That user already exists.'

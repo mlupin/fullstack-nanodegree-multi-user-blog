@@ -8,12 +8,18 @@ import time
 class AddComment(BlogHandler):
     @signin_required
     def get(self, post_id, user_id):
-        # Only signed in users can post comments
-        # Logged out users are redirected to the login page
+        """
+        Renders addcomment page if user is signed in
+        """
         return self.render('addcomment.html')
 
     @signin_required
     def post(self, post_id, user_id):
+        """
+        User must be signed in to add a comment.
+        Renders blog page with new comment if comment is not none.
+        Renders addcomment page with error if content is none.
+        """
         content = self.request.get('content')
 
         if content:
@@ -24,7 +30,6 @@ class AddComment(BlogHandler):
                               author=author)
             comment.put()
             time.sleep(0.1)
-            # Users are redirected to blog home page after page updates
             return self.redirect('/blog')
         else:
             error = "content, please!"

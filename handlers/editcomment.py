@@ -10,13 +10,16 @@ import time
 class EditComment(BlogHandler):
     @signin_required
     def get(self, post_id, user_id, comment_id):
-        # Logged in users can edit comments
+        """
+        User must be signed in to edit a comment.
+        Redirects user to edit page if the comment exists and if the user is
+        the author of the comment.
+        """
         postkey = db.Key.from_path('Post', int(post_id), parent=blog_key())
         commentkey = db.Key.from_path('Comment', int(comment_id),
                                       parent=postkey)
         comment = db.get(commentkey)
 
-        # Users can only edit comments they themselves have made
         if comment is not None and self.user.key().id() == int(comment.user_id):
                 return self.render('editcomment.html', content=comment.content)
         else:
@@ -24,13 +27,18 @@ class EditComment(BlogHandler):
 
     @signin_required
     def post(self, post_id, user_id, comment_id):
+        """
+        User must be signed in to edit a comment.
+        Updates comment if it exists, if user is the author of the comment, and
+        if content is not none.
+        Redirects user to blog page after updating the comment.
+        """
         content = self.request.get('content')
         postkey = db.Key.from_path('Post', int(post_id), parent=blog_key())
         commentkey = db.Key.from_path('Comment', int(comment_id),
                                       parent=postkey)
         comment = db.get(commentkey)
 
-        # Users can only edit a comment if comment has content
         if comment is not None and self.user.key().id() == int(comment.user_id):
             if content:
                 comment.content = content

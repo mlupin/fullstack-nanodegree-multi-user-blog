@@ -8,7 +8,11 @@ import time
 class LikePost(BlogHandler):
     @signin_required
     def get(self, post_id):
-        # User cannot like their own posts
+        """
+        User must be signed in to like a post.
+        Updates like count if the post exists and if user is not the author
+        of the post. User can only like a post once.
+        """
         key = db.Key.from_path('Post', int(post_id), parent=blog_key())
         post = db.get(key)
 
@@ -22,7 +26,6 @@ class LikePost(BlogHandler):
                 like = Like.all().filter('user_id =', user_id).filter(
                                          'post_id =', post_id).get()
 
-                # User can only like a post once
                 # TODO: raise an error if a user already like a post
                 if like:
                     return self.redirect('/blog')
