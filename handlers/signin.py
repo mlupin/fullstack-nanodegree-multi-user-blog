@@ -4,7 +4,7 @@ from models.user import User
 
 class Signin(BlogHandler):
     def get(self):
-        self.render('signin-form.html')
+        return self.render('signin-form.html')
 
     def post(self):
         username = self.request.get('username')
@@ -13,7 +13,7 @@ class Signin(BlogHandler):
         user = User.signin(username, password)
         if user:
             self.signin(user)
-            self.redirect('/blog')
+            return self.redirect('/blog')
         else:
-            msg = 'Invalid login'
-            self.render('signin-form.html', error=msg)
+            error = 'Invalid login'
+            return self.render('signin-form.html', error=error)

@@ -14,7 +14,8 @@ class BlogFront(BlogHandler):
             # Show from oldest-newest comments
             comments = replies = Comment.all().order('created')
             likes = hearts = Like.all().order('created')
-            self.render('front.html', posts=posts, comments=comments, likes=likes)
+            return self.render('front.html', posts=posts, comments=comments,
+                               likes=likes)
 
-        else:
-            self.render("home.html")
+        elif not self.user:
+            return self.render("home.html")

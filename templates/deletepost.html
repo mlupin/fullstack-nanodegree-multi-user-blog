@@ -3,15 +3,15 @@
 {% block content %}
 
   <div class="signin col-xs-12">
-      <form method="post">
-        <h4>{{ post.subject }} by {{ user.name }}</h4>
-        <h5>Posted on: {{ post.created.strftime("%b %d, %Y") }}</h5>
-        <article>{{ post.content | safe }}</article>
-        
-        <input type="submit" value="Delete Post">
-        <input type="submit" value="Cancel" onClick="window.history.back();">
+    <form method="post">
+      <h4>{{ post.subject }} by {{ user.name }}</h4>
+      <h5>Posted on: {{ post.created.strftime("%b %d, %Y") }}</h5>
+      <article>{{ post.content | safe }}</article>
+      
+      <input type="submit" value="Delete Post">
+      <input type="submit" value="Cancel" onClick="window.history.back();">
 
-      </form>
+    </form>
   </div>
 
 {% endblock %}

@@ -2,21 +2,19 @@
 
 {% block content %}
 
-    <div class="signin col-xs-12">
-        <form method="post">
-            <div class="error">{{error}}</div>
-            
-            <h5>Subject</h5>
-            <input type="text" name="subject" value="{{subject}}">
+  <div class="signin col-xs-12">
+    <form method="post">            
+      <h5>Subject</h5>
+      <input type="text" name="subject" value="{{subject}}">
 
-            <h5>Post</h5>
-            <textarea name="content">{{content}}</textarea>
+      <h5>Post</h5>
+      <textarea name="content">{{content}}</textarea>
 
-            <input type="submit" value="Edit Post">
-            <input type="submit" value="Cancel" onClick="window.history.back();">
-            <p class="error">{{error}}</p>
-        </form>
-    </div>
+      <input type="submit" value="Edit Post">
+      <input type="submit" value="Cancel" onClick="window.history.back();">
+      <p class="error">{{error}}</p>
+    </form>
+  </div>
 
 
 {% endblock %}

@@ -2,49 +2,51 @@
 
 {% block content %}
 
-    <div class="post col-xs-12">
-        {% for post in posts %}
-        {% if user %}
-            {{ post.render(user.key().id()) | safe }}
-            
-            {% if user.key().id() == post.user_id %}
-                <div class="post-actions">
-                    <a href="/{{post.key().id()}}/delete">Delete</a>
-                    <a href="/{{post.key().id()}}/edit">Edit</a>
-                </div>
-            {% endif %}
-
-            <div class="post-actions">
-                <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment"  alt="Comment"> Comment</a>
-            </div>
-        {% else %}
-            {{ post.render(None) | safe }}
+  <div class="post col-xs-12">
+    {% for post in posts %}
+      {% if user %}
+        {{ post.render(user.key().id()) | safe }}
+        
+        {% if user.key().id() == post.user_id %}
+          <div class="post-actions">
+            <a href="/{{post.key().id()}}/delete">Delete</a>
+            <a href="/{{post.key().id()}}/edit">Edit</a>
+          </div>
+        {% elif not user.key().id() == post.user_id %}
+          <a href="/{{post.key().id()}}/like">Like</a>
+          <a href="/{{post.key().id()}}/unlike">Unlike</a>
         {% endif %}
-        
-        
-        <div class="comments">
-            {% for comment in comments %}
-            {% if post.key().id() == comment.post_id %}
-                <div class="comment">
-                    <p>{{ comment.author }}: {{ comment.content}}</p>
-                        {% if user.key().id() == comment.user_id %}
-                            <div class="comment-info">
-                                <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/deletecomment">Delete
-                                </a> | 
-                                <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/editcomment">Edit</a> | 
-                                {{ comment.created.strftime("%b %d, %Y")}}
-                            </div>
-                        {% else %}
-                            {{ comment.created.strftime("%b %d, %Y")}}
-                        {% endif %}
-                </div>  
-            {% endif %}
-        {% endfor %}
-        </div>
-        
-    {% endfor %}
 
-    </div>   
-    
-    
+        <div class="post-actions">
+          <a href="/{{post.key().id()}}/{{user.key().id()}}/addcomment">
+            Comment
+          </a>
+        </div>
+      {% else %}
+        {{ post.render(None) | safe }}
+      {% endif %}
+      
+      
+      <div class="comments">
+        {% for comment in comments %}
+          {% if post.key().id() == comment.post_id %}
+            <div class="comment">
+              <p>{{ comment.author }}: {{ comment.content}}</p>
+                
+              {% if user.key().id() == comment.user_id %}
+                <div class="comment-info">
+                  <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/deletecomment">Delete
+                  </a> | 
+                  <a href="/{{post.key().id()}}/{{user.key().id()}}/{{comment.key().id()}}/editcomment">Edit</a> | 
+                  {{ comment.created.strftime("%b %d, %Y")}}
+                </div>
+              {% else %}
+                {{ comment.created.strftime("%b %d, %Y")}}
+              {% endif %}
+            </div>  
+          {% endif %}
+        {% endfor %}
+      </div>      
+  {% endfor %}
+  </div>
 {% endblock %}

@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-  
 
-    <div class="signin col-xs-12">
-        <form method="post">
-            <div class="error">{{error}}</div>
-                <h5>Subject</h5>
-                <input type="text" name="subject" placeholder="Subject" value="{{subject}}">
+  <div class="signin col-xs-12">
+    <form method="post">
+      <h5>Subject</h5>
+      <input type="text" name="subject" placeholder="Subject"
+             value="{{subject}}">
 
-                <h5>Post</h5>
-                <textarea name="content" placeholder="Write a post">{{content}}</textarea>
+      <h5>Post</h5>
+      <textarea name="content" placeholder="Write a post">{{content}}</textarea>
 
-                <input class="submit-button" type="submit" value="Post">
-                <input type="submit" value="Cancel" onClick="window.history.back();">
-                <p class="error">{{error}}</p>
-        </form>
-    </div>
-
+      <input class="submit-button" type="submit" value="Post">
+      <input type="submit" value="Cancel" onClick="window.history.back();">
+      <p class="error">{{error}}</p>
+    </form>
+  </div>
 
 {% endblock %}

@@ -43,10 +43,10 @@ class Signup(BlogHandler):
         # make sure the user doesn't already exist
         u = User.by_name(self.username)
         if u:
-            msg = 'That user already exists.'
-            self.render('signup-form.html', error_username=msg)
+            error = 'That user already exists.'
+            self.render('signup-form.html', error_username=error)
         else:
             u = User.register(self.username, self.password, self.email)
             u.put()
             self.signin(u)
-            self.redirect('/blog')
+            return self.redirect('/blog')

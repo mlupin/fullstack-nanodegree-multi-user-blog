@@ -2,16 +2,16 @@
 
 {% block content %}
   
-  <div class="signin col-xs-12">
-      <form method="post">
-          
-          <h5>Comment</h5>
-          <textarea name="content" placeholder="Write a response...">{{content}}</textarea>
+	<div class="signin col-xs-12">
+		<form method="post">
+			<h5>Comment</h5>
+			<textarea name="content" 
+			          placeholder="Write a response...">{{content}}</textarea>
 
-          <input type="submit" value="Edit Comment">
-          <input type="submit" value="Cancel" onClick="window.history.back();">
-          <div class="error">{{error}}</div>
-      </form>
-  </div>
+			<input type="submit" value="Edit Comment">
+			<input type="submit" value="Cancel" onClick="window.history.back();">
+			<div class="error">{{error}}</div>
+		</form>
+	</div>
 
 {% endblock %}

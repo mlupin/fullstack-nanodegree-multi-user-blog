@@ -1,37 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-  
 
-    <div class="signin col-xs-12">
-        <form method="post">
+  <div class="signin col-xs-12">
+    <form method="post">
+      <h6>Username</h6>
+      
+      <input placeholder="Username" type="text" name="username"
+             value="{{username}}">
+      <br>
 
-                <h6>Username</h6>
-                
-                <input placeholder="Username" type="text" name="username" value="{{username}}">
-                <br>
+      <h6>Password</h6>                
+      <input placeholder="Password" type="password" name="password" value="">
 
-                <h6>Password</h6>                
-                <input placeholder="Password" type="password" name="password" value="">
-
-                <h6>Password Confirmation</h6>
-                <input placeholder="Repeat Password" type="password" name="verify" value="">
+      <h6>Password Confirmation</h6>
+      <input placeholder="Repeat Password" type="password" name="verify"
+             value="">
 
 
-                <h6>Email (optional)</h6>
-                <input placeholder="username@example.com" type="text" name="email" value="{{email}}">
+      <h6>Email (optional)</h6>
+      <input placeholder="username@example.com" type="text" name="email"
+             value="{{email}}">
 
-                <input class="submit-button" type="submit" value="Create New Account">
-                <br>
-                <span>By submitting this form you agree to Blog's </span><a href="">Terms and Conditions</a>.
-                
-                <p class="error">{{error}}</p>
-                <p class="error">{{error_username}}</p>
-                <p class="error">{{error_password}}</p>
-                <p class="error">{{error_verify}}</p>
-                <p class="error">{{error_email}}</p>
-
-        </form>
-    </div>
+      <input class="submit-button" type="submit" value="Create New Account">
+      <br>
+      <span>By submitting this form you agree to Blog's </span>
+      <a href="">Terms and Conditions</a>.
+      
+      <p class="error">{{error}}</p>
+      <p class="error">{{error_username}}</p>
+      <p class="error">{{error_password}}</p>
+      <p class="error">{{error_verify}}</p>
+      <p class="error">{{error_email}}</p>
+    </form>
+  </div>
 
 {% endblock %}

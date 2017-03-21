@@ -97,7 +97,7 @@ To download: http://codepen.io/motorlatitude/share/zip/JFkro/*/
 }
 
 .signin input[type=text]{
-    width: 400px;
+    width: 100%;
     height: 30px;
     background: transparent;
     border: 1px solid lightgrey;
@@ -111,7 +111,7 @@ To download: http://codepen.io/motorlatitude/share/zip/JFkro/*/
 }
 
 .signin input[type=password]{
-    width: 400px;
+    width: 100%;
     height: 30px;
     background: transparent;
     border: 1px solid lightgrey;
@@ -125,7 +125,7 @@ To download: http://codepen.io/motorlatitude/share/zip/JFkro/*/
 }
 
 .signin input[type=submit]{
-    width: 400px;
+    width: 100%;
     height: 35px;
     border: 1px solid darkgrey;
     cursor: pointer;
@@ -181,7 +181,7 @@ To download: http://codepen.io/motorlatitude/share/zip/JFkro/*/
     outline: none;
 }
 .signin textarea{
-    width: 400px;
+    width: 100%;
     height: 300px;
     background: transparent;
     border: 1px solid lightgrey;

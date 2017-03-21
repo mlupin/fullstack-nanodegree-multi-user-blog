@@ -16,5 +16,4 @@ class PostPage(BlogHandler):
         if not post:
             self.error(404)
             return
-
-        self.redirect("/blog")
+        return self.redirect("/blog")
