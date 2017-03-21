@@ -16,6 +16,7 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir),
                                autoescape=True)
 
+
 def signin_required(func):
     """
     A decorator to confirm a user is logged in or redirect as needed.
@@ -27,6 +28,7 @@ def signin_required(func):
         else:
             func(self, *args, **kwargs)
     return signin
+
 
 def render_str(template, **params):
     t = jinja_env.get_template(template)
@@ -40,12 +42,6 @@ def users_key(group='default'):
 
 def blog_key(name='default'):
     return db.Key.from_path('blogs', name)
-
-
-# User validation
-
-
-
 
 
 def valid_username(username):

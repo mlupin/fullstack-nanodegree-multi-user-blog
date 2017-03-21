@@ -16,3 +16,6 @@ Clone the [fullstack-nanodegree-blog](https://github.com/mlupin/udacity-multi-us
 Login template code and design obtained from Colorlib: Transparent Form With Logo
 https://colorlib.com/wp/html5-and-css3-login-forms/
 To download: http://codepen.io/motorlatitude/share/zip/JFkro/
+
+###TODO
+Need to save likes in the Post model as ListProperty to save the user_id of the user that has liked the page. Then calculate the number of likes using len method and check if the author has liked a specific post by checking if current_user_id in post.likes conditional.
