@@ -7,7 +7,7 @@ from google.appengine.ext import db
 
 
 class BlogFront(BlogHandler):
-    @signin_required
+    @login_required
     def get(self):
         """
         Renders the front blog page with users' posts, likes, and comments.

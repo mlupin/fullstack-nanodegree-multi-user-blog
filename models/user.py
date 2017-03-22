@@ -25,7 +25,7 @@ class User(db.Model):
                     email=email)
 
     @classmethod
-    def signin(cls, name, pw):
+    def login(cls, name, pw):
         user = cls.by_name(name)
         if user and valid_pw(name, pw, user.pw_hash):
             return user

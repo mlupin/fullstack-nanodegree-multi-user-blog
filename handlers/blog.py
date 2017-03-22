@@ -32,7 +32,7 @@ class BlogHandler(webapp2.RequestHandler):
             'Set-Cookie',
             '%s=%s; Path=/' % (name, cookie_val))
 
-    def signin(self, user):
+    def login(self, user):
         """
         Verifies user existance.
         """
@@ -40,7 +40,7 @@ class BlogHandler(webapp2.RequestHandler):
             'user_id',
             str(user.key().id()))
 
-    def signout(self):
+    def logout(self):
         """
         Resets cookie.
         """

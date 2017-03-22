@@ -4,14 +4,14 @@ from helpers import *
 
 
 class NewPost(BlogHandler):
-    @signin_required
+    @login_required
     def get(self):
         """
         Renders newpost page if user is signed in
         """
         return self.render("newpost.html")
 
-    @signin_required
+    @login_required
     def post(self):
         """
         Renders blog page with new post if subject and content are not none.

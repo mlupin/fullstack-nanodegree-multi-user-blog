@@ -53,5 +53,5 @@ class Signup(BlogHandler):
         else:
             u = User.register(self.username, self.password, self.email)
             u.put()
-            self.signin(u)
+            self.login(u)
             return self.redirect('/blog')

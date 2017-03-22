@@ -2,18 +2,18 @@ from handlers.blog import BlogHandler
 from models.user import User
 
 
-class Signin(BlogHandler):
+class Login(BlogHandler):
     def get(self):
-        return self.render('signin-form.html')
+        return self.render('login-form.html')
 
     def post(self):
         username = self.request.get('username')
         password = self.request.get('password')
 
-        user = User.signin(username, password)
+        user = User.login(username, password)
         if user:
-            self.signin(user)
+            self.login(user)
             return self.redirect('/blog')
         else:
             error = 'Invalid login'
-            return self.render('signin-form.html', error=error)
+            return self.render('login-form.html', error=error)

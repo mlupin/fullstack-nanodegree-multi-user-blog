@@ -5,7 +5,7 @@ import time
 
 
 class DeletePost(BlogHandler):
-    @signin_required
+    @login_required
     def get(self, post_id):
         """
         Redirects user to confirmation page if the post exists and if the user
@@ -20,7 +20,7 @@ class DeletePost(BlogHandler):
         else:
             return self.redirect('/blog')
 
-    @signin_required
+    @login_required
     def post(self, post_id):
         """
         Deletes post if it exists and if user is the author of the post.

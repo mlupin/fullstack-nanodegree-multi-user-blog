@@ -6,7 +6,7 @@ import time
 
 
 class LikePost(BlogHandler):
-    @signin_required
+    @login_required
     def get(self, post_id):
         """
         Updates like count if the post exists and if user is not the author

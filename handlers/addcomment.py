@@ -6,14 +6,14 @@ import time
 
 
 class AddComment(BlogHandler):
-    @signin_required
+    @login_required
     def get(self, post_id, user_id):
         """
         Renders addcomment page if user is signed in
         """
         return self.render('addcomment.html')
 
-    @signin_required
+    @login_required
     def post(self, post_id, user_id):
         """
         Renders blog page with new comment if comment is not none.

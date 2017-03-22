@@ -8,7 +8,7 @@ import time
 
 
 class EditComment(BlogHandler):
-    @signin_required
+    @login_required
     def get(self, post_id, user_id, comment_id):
         """
         Redirects user to edit page if the comment exists and if the user is
@@ -24,7 +24,7 @@ class EditComment(BlogHandler):
         else:
             return self.redirect('/blog')
 
-    @signin_required
+    @login_required
     def post(self, post_id, user_id, comment_id):
         """
         Updates comment if it exists, if user is the author of the comment, and

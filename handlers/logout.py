@@ -1,7 +1,7 @@
 from handlers.blog import BlogHandler
 
 
-class Signout(BlogHandler):
+class Logout(BlogHandler):
     def get(self):
-        self.signout()
+        self.logout()
         return self.redirect('/')

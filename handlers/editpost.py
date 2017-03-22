@@ -5,7 +5,7 @@ import time
 
 
 class EditPost(BlogHandler):
-    @signin_required
+    @login_required
     def get(self, post_id):
         """
         Redirects user to edit page if the post exists and if the user is
@@ -20,7 +20,7 @@ class EditPost(BlogHandler):
         else:
             return self.redirect('/blog')
 
-    @signin_required
+    @login_required
     def post(self, post_id):
         """
         Updates post if it exists, if user is the author of the post, and

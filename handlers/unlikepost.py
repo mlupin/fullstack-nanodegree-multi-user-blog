@@ -6,7 +6,7 @@ import time
 
 
 class UnlikePost(BlogHandler):
-    @signin_required
+    @login_required
     def get(self, post_id):
         """
         Updates like count if the post exists and if user like the post.

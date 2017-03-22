@@ -16,8 +16,8 @@ from handlers.addcomment import AddComment
 from handlers.editcomment import EditComment
 from handlers.deletecomment import DeleteComment
 from handlers.signup import Signup
-from handlers.signin import Signin
-from handlers.signout import Signout
+from handlers.login import Login
+from handlers.logout import Logout
 
 from models.user import User
 from models.post import Post
@@ -39,8 +39,8 @@ app = webapp2.WSGIApplication([('/', MainPage),
                                ('/([0-9]+)/([0-9]+)/([0-9]+)/deletecomment',
                                DeleteComment),
                                ('/signup', Signup),
-                               ('/signin', Signin),
-                               ('/signout', Signout),
+                               ('/login', Login),
+                               ('/logout', Logout),
                                ('/blog/?', BlogFront),
                                ],
                               debug=True)

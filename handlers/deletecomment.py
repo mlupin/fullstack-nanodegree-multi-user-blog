@@ -7,7 +7,7 @@ import time
 
 
 class DeleteComment(BlogHandler):
-    @signin_required
+    @login_required
     def get(self, post_id, user_id, comment_id):
         """
         Deletes comment if it exists and if user is the author of the comment.
